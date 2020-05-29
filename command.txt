@@ -1,0 +1,12 @@
+Để chạy chương trình gõ
+    python AI.py x y z
+x: map
+y: Algorithms 
+    BFS: Breadth-First Search
+    DFS: Depth-First Search
+    AStar: A Star (A*)
+    UCS: Uniform-Cost Search
+    BestFS: Best-First Search
+z: time
+
+example: python AI.py test.txt DFS 0.1
