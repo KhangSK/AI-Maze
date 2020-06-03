@@ -7,7 +7,6 @@ wn = turtle.Screen()
 wn.bgcolor("black")
 wn.setup(1300, 700)
 
-
 class Maze(turtle.Turtle):
     def __init__(self):
         turtle.Turtle.__init__(self)
@@ -19,7 +18,7 @@ class Maze(turtle.Turtle):
 class Visited(turtle.Turtle):
     def __init__(self):
         turtle.Turtle.__init__(self)
-        # self.goto(1000, 1000)
+        self.goto(1000, 1000)
         self.shape("square")
         self.color("yellow")
         self.penup()
@@ -28,7 +27,7 @@ class Visited(turtle.Turtle):
 class Expand(turtle.Turtle):
     def __init__(self):
         turtle.Turtle.__init__(self)
-        # self.goto(1000, 1000)
+        self.goto(1000, 1000)
         self.shape("square")
         self.color("purple")
         self.penup()
@@ -363,6 +362,7 @@ class sprite(turtle.Turtle):
                         expand.stamp()
 
     def path(self, action):
+        timeRun = wn.textinput("Time", None)
         direction = 3
         x = round(sprite.xcor(), 0)
         y = round(sprite.ycor(), 0)
@@ -383,7 +383,7 @@ class sprite(turtle.Turtle):
                 elif (direction == 2): x += 24
                 else: y -= 24
                 self.forward(24)
-            time.sleep(float(sys.argv[3]))
+            time.sleep(float(timeRun))
         print("Finished")
         time.sleep(1)
         sys.exit()
@@ -540,13 +540,22 @@ corner = []
 
 setupMaze(grid)
 
-if (sys.argv[2] == 'DFS'):
+algorithm = wn.textinput("Algorithm", "Chon 1 trong nhung thuat toan sau:\n DFS \n BFS \n AStar \n UCS \n BestFS ")
+
+if (algorithm == 'DFS'):
+    wn.title("Depth - First Search")
     sprite.DFS()
-elif (sys.argv[2] == 'BFS'):
+elif (algorithm == 'BFS'):
+    wn.title("Breadth - First Search")
     sprite.BFS()
-elif (sys.argv[2] == 'AStar'):
+elif (algorithm == 'AStar'):
+    wn.title("A Star")
     sprite.AStar()
-elif (sys.argv[2] == 'UCS'):
+elif (algorithm == 'UCS'):
+    wn.title("Uniform - Cost Search")
     sprite.UCS()
-elif (sys.argv[2] == 'BestFS'):
+elif (algorithm == 'BestFS'):
+    wn.title("Best-First Search")
     sprite.BestFS()
+
+
