@@ -1,0 +1,212 @@
+\documentclass[a4paper]{article}
+\usepackage{vntex}
+\author{Lăng Hoàng Long, Hoàng Gia Khang}
+\date{Tháng 5, 2020}
+
+\usepackage[top=3cm, bottom=4cm, left=3cm, right=3cm]{geometry}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=blue,
+	urlcolor=blue,
+}
+\usepackage{lastpage}
+\usepackage{afterpage}
+\newcommand\blankpage{
+	\null
+	\thispagestyle{empty}
+	\addtocounter{page}{-1}
+	\newpage
+}
+\usepackage{indentfirst}
+\setlength{\parindent}{0.6cm}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset{
+	basicstyle=\footnotesize\ttfamily,
+	backgroundcolor=\color{gray!10},
+	frame=tblr,
+	tabsize=4,
+	numbers=left,
+	commentstyle=\color{gray},
+	keywordstyle=\color{blue},
+	stringstyle=\color{violet},
+	breaklines=true,
+	showstringspaces=false,
+	captionpos=b
+}
+
+\newcommand{\Image}[3]{
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[scale=#2]{#1}
+			\caption{#3}
+		\end{center}
+	\end{figure}
+}
+
+\usepackage{fancyhdr}
+\setlength{\headheight}{40pt}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[L]{
+	\begin{tabular}{rl}
+		\begin{picture}(24,14)(0,0)
+		\put(0,-8){\includegraphics[width=8mm, height=8mm]{Image/BKHCM.png}}
+		\end{picture}
+		\begin{tabular}{l}
+			\textbf{\texttt{Trường đại học Bách Khoa TPHCM}}\\
+			\textbf{\texttt{Khoa Khoa học và Kỹ thuật Máy tính}}\\
+		\end{tabular}
+	\end{tabular}
+}
+\fancyhead[R]{
+	\begin{tabular}{l}
+		\tiny \bf \\
+		\tiny \bf
+	\end{tabular}
+}
+\fancyfoot{}
+\fancyfoot[L]{\scriptsize \ttfamily Học kì 192 - Năm học 2019-2020}
+\fancyfoot[R]{\scriptsize \ttfamily Trang {\thepage}/\pageref{LastPage}}
+
+
+
+\begin{document}
+
+	\begin{titlepage}
+		\begin{center}
+			\vspace*{2cm}
+			\large{TRƯỜNG ĐẠI HỌC BÁCH KHOA TPHCM}\\
+			\large{\textbf{KHOA KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH}}\\
+			\verb|------------------------------------|\\
+
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.3]{Image/BKHCM.png}
+			\end{figure}
+
+			\begin{tabular}{c}
+				\multicolumn{1}{c}{\textbf{\LARGE{Nhập môn trí tuệ nhân tạo}}}\\
+				\\ \hline \\
+				\multicolumn{1}{l}{\textbf{\Large{Phần mở rộng KSTN}}}\\
+				\\
+				\textbf{\Huge{Hiện thực bài toán}}\\
+				\textbf{\Huge{tìm đường đi trong mê cung}}\\
+				\\ \hline \\
+			\end{tabular}
+
+			\begin{table}[h]
+				\begin{tabular}{rlr}
+					\hspace{3cm}
+					\textbf{GVHD}:      & Nguyễn Hồ Mẫn Rạng &         \\
+					\textbf{Sinh viên}: & Lăng Hoàng Long    & 1812879 \\
+					                    & Hoàng Gia Khang    & 1812535 \\
+				\end{tabular}
+			\end{table}
+
+			\vspace{3cm}
+
+			\textit{Thành phố Hồ Chí Minh, tháng 5 - 2020}
+		\end{center}
+	\end{titlepage}
+
+
+
+	\section{Yêu cầu đề bài}
+	Hiện thực bài toán tìm đường đi trong mê cung:
+	\begin{enumerate}
+		\item Hiển thị giao diện trực quan mê cung
+		\item Có chức năng thay đổi mê cung thông qua file cấu hình (kích thước mê cung tối đa 10x10)
+		\item Có chức năng điều chỉnh tốc độ chạy
+		\item Phần hiện thực cần bao gồm các giải thuật sau:
+			\begin{itemize}
+				\item Depth First Search (DFS)
+				\item Breadth First Search (BFS)
+				\item Uniform Cost Search (UCS)
+				\item Best First Search (Greedy Search)
+				\item A-Star
+			\end{itemize}
+		\item Ngôn ngữ: Python
+	\end{enumerate}
+
+	\section{Hiện thực}
+	\subsection{Mã nguồn}
+	Link GitHub của phần hiện thực: \url{https://github.com/khangsk/AI}\\
+
+	Bên trong repository có chứa các file như sau:
+	\begin{center}
+		\begin{tabular}{|p{3cm}|p{9cm}|}
+			\hline
+			\textbf{Tên file} & \textbf{Chức năng}\\
+			\hline
+			\texttt{util.py} & Hiện thực các cấu trúc dữ liệu cơ bản (Queue, Stack, ...) và một số hàm (manhattanDistance)\\
+			\hline
+			\texttt{AI.py} & Chứa phần đồ họa và các thuật toán tìm kiếm\\
+			\hline
+			\texttt{Report.tex} & Mã nguồn \LaTeX của báo cáo này\\
+			\hline
+			Các file có đuôi \texttt{.txt} & file cấu hình mê cung\\
+			\hline
+		\end{tabular}
+	\end{center}
+
+	\subsection{Chi tiết hiện thực}
+
+	\paragraph{Về đồ họa}\par
+	Chúng em sử dụng thư viện \href{turtle}{https://docs.python.org/3/library/turtle.html} có sẵn của Python để xây dựng phần đồ họa.
+	\Image{Image/Demo.png}{1}{Đồ họa sử dụng thư viện turtle \label{Figure:Demo}}
+
+	\paragraph{Về cách cấu hình}\par
+	Chương trình cho phép cấu hình thông qua file text, với định dạng như sau:
+	\begin{center}
+		\begin{tabular}{|p{3cm}|p{9cm}|}
+			\hline
+			\textbf{Ký tự} & \textbf{Chức năng}\\
+			\hline
+			<space> & Thể hiện một ô trống có thể đi qua được\\
+			\hline
+			\texttt{\%} & Thể hiện ô có tường\\
+			\hline
+			\texttt{S} & Vị trí xuất phát\\
+			\hline
+			\texttt{G} & Vị trí ô đích\\
+			\hline
+		\end{tabular}
+	\end{center}
+
+	Đây là file cấu hình tương ứng với hình \ref{Figure:Demo}:\\
+	\lstinputlisting[title=File cấu hình mẫu]{test.txt}
+
+	\paragraph{Điều chỉnh tốc độ}\par
+	Chương trình cho phép điều chỉnh tốc độ chạy bằng tham số.
+
+	\paragraph{Các thuật toán}\par
+	Cả 5 thuật toán được yêu cầu đều đã được hiện thực trong file \texttt{AI.py}. Có thể lựa chọn thuật toán được sử dụng bằng tham số.
+	\Image{Image/Algo.png}{0.8}{Các thuật toán đã được hiện thực}
+
+	\paragraph{Ngôn ngữ}\par
+	Chúng em viết chương trình này bằng Python 100\%.
+
+
+
+	\section{Sử dụng}
+	Dòng lệnh chạy chương trình có dạng như sau:\\
+	\begin{center}
+	\texttt{\$ python AI.py <config\_file> <algorithm> <delay>}
+	\end{center}
+
+	trong đó:
+	\begin{center}
+		\begin{tabular}{p{3cm}p{9cm}}
+			\texttt{<config\_file>} & Tên file cấu hình\\
+			\texttt{<algorithm>} & Thuật toán được sử dụng. Chỉ có 5 lựa chọn là \texttt{DFS}, \texttt{BFS}, \texttt{BestFS}, \texttt{UCS} và \texttt{AStar} tương ứng với 5 thuật toán được yêu cầu\\
+			\texttt{<delay>} & Thời gian chờ giữa hai khung hình (số càng nhỏ chạy càng nhanh)\\
+		\end{tabular}
+	\end{center}
+
+\end{document}
