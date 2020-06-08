@@ -30,14 +30,16 @@ class ChooseAlgorithmAndSpeed:
         self.Time_Label = Label(master=self.root, text="Frame delay")
         self.Time_Label.place(x=10, y=60)
         self.Time_Entry = Entry(master=self.root, width=4)
-        self.Time_Entry.insert(0, "0")
+        self.Time_Entry.insert(0, "0.0")
         self.Time_Entry.place(x=100, y=60)
 
         OK_Button = Button(master=self.root, text="RUN!", width=3,
                            height=1, command=self.Close)
         OK_Button.place(x=50, y=100)
 
+        self.root.title("AI")
         self.root.wait_window()
+        
 
     def Close(self):
         self.Algo = self.Choice.get()
