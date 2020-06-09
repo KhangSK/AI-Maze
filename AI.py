@@ -402,6 +402,9 @@ class sprite(turtle.Turtle):
                                     [2], 270, newCost), cost)
                         expand.goto(x, y - 24)
                         expand.stamp()
+            if s.isEmpty():
+                print("We lost!")
+                sys.exit()
 
     def path(self, action):
         timeRun = GLOBAL_DELAY
@@ -613,6 +616,9 @@ class sprite(turtle.Turtle):
                                 [2], 270), heuristic((x, y - 24), finish[0]))
                         expand.goto(x, y - 24)
                         expand.stamp()
+            if s.isEmpty():
+                print("We lost!")
+                sys.exit()
 
 # ############ main program starts here  ######################
 
